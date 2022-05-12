@@ -41,6 +41,7 @@ class RockPaperScissors(QMainWindow):
     def _GameButtons(self):
         # Layout 
 
+        # TODO: FIX IMAGES ON BUTTONS
         # Buttons
         rbtn = QPushButton(self)
         rbtn.setGeometry(10,240,70,70)
