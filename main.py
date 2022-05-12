@@ -13,13 +13,29 @@ class RockPaperScissors(QMainWindow):
         self.resize(QSize(600,600))
         # self.setStyleSheet("background: #036396;")
 
-        # Title --- TODO: CENTER TITLE
+        # Title
         title = QLabel("Rock Paper Scissors", self)
-        title.setGeometry(160, 10, 180, 100)
+        title.setGeometry(210, 10, 180, 100)
         title.setAlignment(QtCore.Qt.AlignCenter)
         title.setStyleSheet("font: 10pt Sans Serif;" 
                             "color: purple;"
                             "font-weight: bold;")
+
+        self._PlayerName()
+
+    def _PlayerName(self):
+
+        # QLabel for player name
+        playername = QLabel("Player Name: ", self)
+        playername.setAlignment(QtCore.Qt.AlignCenter)
+        playername.setGeometry(5,170,100,100)
+        playername.setStyleSheet("font: 10pt Sans Serif;" 
+                            "color: blue;"
+                            "font-weight: bold;")
+
+        # QLineEdit
+        inputname = QLineEdit(self)
+        inputname.setGeometry(110,212,120,18)
 
 def main():
     app = QApplication(sys.argv)
