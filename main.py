@@ -22,6 +22,7 @@ class RockPaperScissors(QMainWindow):
                             "font-weight: bold;")
 
         self._PlayerName()
+        self._GameButtons()
 
     def _PlayerName(self):
 
@@ -36,6 +37,38 @@ class RockPaperScissors(QMainWindow):
         # QLineEdit
         inputname = QLineEdit(self)
         inputname.setGeometry(110,212,120,18)
+
+    def _GameButtons(self):
+        # Layout 
+
+        # Buttons
+        rbtn = QPushButton(self)
+        rbtn.setGeometry(10,240,70,70)
+        rbtn.setStyleSheet("border-image : url(python-gui/icons/rock.jpg);")
+
+        pbtn = QPushButton(self)
+        pbtn.setGeometry(90,240,70,70)
+        pbtn.setStyleSheet("border-image : url(python-gui/icons/paper.jpg);")
+
+
+        sbtn = QPushButton(self)
+        sbtn.setGeometry(170,240,70,70)
+        sbtn.setStyleSheet("border-image : url(python-gui/icons/scissors.jpg);")
+        # b3.setStyleSheet("Background-color: Green")
+
+        # VS label
+        vs = QLabel("vs.", self)
+        vs.setAlignment(QtCore.Qt.AlignCenter)
+        vs.setGeometry(250,240,70,70)
+        vs.setStyleSheet("font: 10pt Sans Serif;" 
+                            "color: red;"
+                            "font-weight: bold;")
+
+        # CPU Label
+        cpu_choice = QLabel("Default", self)
+        cpu_choice.setGeometry(350, 200, 130, 150)
+        pixmap = QPixmap('C:/Users/Danie/Desktop/githubProjects/python-gui/icons/paper.jpg').scaled(130,150)
+        cpu_choice.setPixmap(pixmap)
 
 def main():
     app = QApplication(sys.argv)
