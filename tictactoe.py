@@ -17,10 +17,14 @@ class TicTacToe(QWidget):
                 self.button_list[(i, j)].setFont(QFont("Times", 50, QFont.Bold))
                 self.button_list[(i, j)].clicked.connect(self.onClick)
                 self.layout.addWidget(self.button_list[(i, j)], i, j)
+
+        self.resetButton = QPushButton("Reset", self)
+        self.resetButton.clicked.connect(self.Reset)
         self.label = QLabel('Your Turn', self)
         self.label.setAlignment(Qt.AlignCenter)
+        
+        self.layout.addWidget(self.resetButton, 4, 2)
         self.layout.addWidget(self.label, 4, 0)
-
         self.setLayout(self.layout)
         self.turns = 0
 
@@ -88,3 +92,11 @@ class TicTacToe(QWidget):
         for i in range(3): 
            for j in range(3): 
                 self.button_list[(i, j)].setEnabled(False)
+
+    def Reset(self):
+        for i in range(3): 
+           for j in range(3): 
+                self.button_list[(i, j)].setText('')
+                self.button_list[(i, j)].setEnabled(True)
+        self.turns = 0
+        self.label.setText("Your Turn")
