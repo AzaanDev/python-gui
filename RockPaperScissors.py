@@ -1,5 +1,5 @@
 from PyQt5.QtCore import QSize
-from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QWidget, QFrame
+from PyQt5.QtWidgets import QApplication, QLabel, QWidget
 from PyQt5.QtWidgets import QPushButton, QLineEdit
 from PyQt5 import QtCore, Qt
 from PyQt5.QtGui import QPixmap
@@ -63,6 +63,20 @@ class RockPaperScissors(QWidget):
         # CPU
         self.cpu_choice = QLabel("Default", self)
         self.cpu_choice.setGeometry(350, 200, 130, 150)
+        pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/question.png').scaled(130,150)
+        self.cpu_choice.setPixmap(pixmap)
+
+        # Text for Win
+        self.win = QLabel("Who will win?", self)
+        self.win.setGeometry(200, 300, 200, 300)
+        self.win.setStyleSheet("font: 14pt Sans Serif;" 
+                    "color: blue;"
+                    "font-weight: bold;")
+        # self.win.setAlignment(QtCore.Qt.AlignCenter)
+
+        # Win Counter var
+        self.win_counter = 0
+
 
     def _Connect(self):
         # Connect
@@ -73,9 +87,6 @@ class RockPaperScissors(QWidget):
     def Select_Rock(self):
         self.player_select = 1
         print("ROCK")
-        self.rbtn.setDisabled(True)
-        self.pbtn.setDisabled(True)
-        self.sbtn.setDisabled(True)
 
         self.Cpu_Select()
         self.Check_Win()
@@ -120,23 +131,28 @@ class RockPaperScissors(QWidget):
         
         if self.player_select == 1: # Player selected Rock
             if self.cpu_select == 3:
-                print("You win!")
+                self.win.setText("You win!")
+                self.win_counter += 1
             else:
-                print("You Lose.")
+                self.win.setText("You Lose.")
+                self.win_counter = 0
 
         elif self.player_select == 2: # Player selected Rock
             if self.cpu_select == 1:
-                print("You win!")
+                self.win.setText("You win!")
+                self.win_counter += 1
             else:
-                print("You Lose.")
-        
+                self.win.setText("You Lose.")
+                self.win_counter = 0
+
         elif self.player_select == 3: # Player selected Rock
             if self.cpu_select == 2:
-                print("You win!")
+                self.win.setText("You win!")
+                self.win_counter += 1
             else:
-                print("You Lose.")
+                self.win.setText("You Lose.")
+                self.win_counter = 0
 
-    
 
 def main():
     app = QApplication(sys.argv)
