@@ -90,7 +90,6 @@ class RockPaperScissors(QWidget):
 
     def Select_Rock(self):
         self.player_select = 1
-        print("ROCK")
 
         self.Cpu_Select()
         self.Check_Win()
@@ -126,7 +125,8 @@ class RockPaperScissors(QWidget):
     def Check_Win(self):
         #Draw
         if self.player_select == self.cpu_select:
-            print("Draw")
+            self.win.setText("Draw")
+            return
         
         if self.player_select == 1: # Player selected Rock
             if self.cpu_select == 3:
@@ -155,7 +155,7 @@ class RockPaperScissors(QWidget):
                 self.win.setText("You win!")
                 self.win_counter += 1
                 self.win_view.display(self.win_counter)
-                
+
             else:
                 self.win.setText("You Lose.")
                 self.win_counter = 0
