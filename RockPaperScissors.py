@@ -1,6 +1,6 @@
 from PyQt5.QtCore import QSize
 from PyQt5.QtWidgets import QApplication, QLabel, QWidget
-from PyQt5.QtWidgets import QPushButton, QLineEdit
+from PyQt5.QtWidgets import QPushButton, QLineEdit, QLCDNumber
 from PyQt5 import QtCore, Qt
 from PyQt5.QtGui import QPixmap
 import sys
@@ -77,6 +77,10 @@ class RockPaperScissors(QWidget):
         # Win Counter var
         self.win_counter = 0
 
+        # Win Counter LCD view
+        self.win_view = QLCDNumber(self)
+        self.win_view.setGeometry(20, 50, 150, 71)
+
 
     def _Connect(self):
         # Connect
@@ -118,11 +122,6 @@ class RockPaperScissors(QWidget):
         elif self.cpu_select == 3:
             pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/scissors.jpg').scaled(130,150)
             self.cpu_choice.setPixmap(pixmap)
-        else:
-            # RESET TO BASE IMAGE
-            # pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/rock.jpg').scaled(130,150)
-            # self.cpu_choice.setPixmap(pixmap)
-            pass
 
     def Check_Win(self):
         #Draw
@@ -133,25 +132,34 @@ class RockPaperScissors(QWidget):
             if self.cpu_select == 3:
                 self.win.setText("You win!")
                 self.win_counter += 1
+                self.win_view.display(self.win_counter)
+
             else:
                 self.win.setText("You Lose.")
                 self.win_counter = 0
+                self.win_view.display(self.win_counter)
 
         elif self.player_select == 2: # Player selected Rock
             if self.cpu_select == 1:
                 self.win.setText("You win!")
                 self.win_counter += 1
+                self.win_view.display(self.win_counter)
+
             else:
                 self.win.setText("You Lose.")
                 self.win_counter = 0
+                self.win_view.display(self.win_counter)
 
         elif self.player_select == 3: # Player selected Rock
             if self.cpu_select == 2:
                 self.win.setText("You win!")
                 self.win_counter += 1
+                self.win_view.display(self.win_counter)
+                
             else:
                 self.win.setText("You Lose.")
                 self.win_counter = 0
+                self.win_view.display(self.win_counter)
 
 
 def main():
