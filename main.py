@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedLayout, QStackedWidget, QWidget, QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedLayout, QStackedWidget, QWidget, QPushButton, QLabel
 from PyQt5.QtCore import QSize
 from tictactoe import TicTacToe
 import sys
@@ -19,10 +19,14 @@ class App(QMainWindow):
         super().__init__()
         self.setWindowTitle("Temp Name")
         self.resize(QSize(600,600))
+
+        self.header = QLabel("Game App",self)
         
 
 
 app = QApplication(sys.argv)
-window = Controller()
-window.TicTacToeWindow()
+# window = Controller()
+# window.TicTacToeWindow()
+main_window = App()
+main_window.show()
 app.exec()
