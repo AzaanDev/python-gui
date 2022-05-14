@@ -1,4 +1,4 @@
-from PyQt5.QtWidgets import QPushButton, QLabel, QGridLayout, QWidget
+from PyQt5.QtWidgets import QPushButton, QLabel, QGridLayout, QWidget, QLCDNumber
 from PyQt5.QtCore import QSize, Qt
 from PyQt5.QtGui import QFont
 import random
@@ -22,7 +22,11 @@ class TicTacToe(QWidget):
         self.resetButton.clicked.connect(self.Reset)
         self.label = QLabel('Your Turn', self)
         self.label.setAlignment(Qt.AlignCenter)
-        
+        self.win_view = QLCDNumber(self)
+        self.win_view.setGeometry(20, 50, 100, 50)
+        self.win_view.move(10, 0)
+        self.win_counter = 0
+
         self.layout.addWidget(self.resetButton, 4, 2)
         self.layout.addWidget(self.label, 4, 0)
         self.setLayout(self.layout)
@@ -56,34 +60,46 @@ class TicTacToe(QWidget):
             if self.button_list[(0, i)].text() == self.button_list[(1, i)].text() and self.button_list[(0, i)].text() == self.button_list[(2, i)].text() and self.button_list[(0, i)].text() != "":
                 if self.button_list[(0, i)].text() == "X":
                     self.label.setText("You Lost")
+                    self.win_counter = 0
                 else:
                     self.label.setText("You Won")
+                    self.win_counter += 1
                 self.disableButtons()
+                self.win_view.display(self.win_counter)
                 return True
 
         for i in range(3):
             if self.button_list[(i, 0)].text() == self.button_list[(i, 1)].text() and self.button_list[(i, 0)].text() == self.button_list[(i, 2)].text() and self.button_list[(i, 0)].text() != "":
                 if self.button_list[(i, 0)].text() == "X":
-                    self.label.setText("You Lost") 
+                    self.label.setText("You Lost")
+                    self.win_counter = 0
                 else:
                     self.label.setText("You Won")
+                    self.win_counter += 1
                 self.disableButtons()
+                self.win_view.display(self.win_counter)
                 return True
 
         if self.button_list[(0, 0)].text() == self.button_list[(1, 1)].text() and self.button_list[(0, 0)].text() == self.button_list[(2, 2)].text() and self.button_list[(0, 0)].text() != "":
             if self.button_list[(0, 0)].text() == "X":
                 self.label.setText("You Lost")
+                self.win_counter = 0
             else:
                 self.label.setText("You Won")
+                self.win_counter += 1
             self.disableButtons()
+            self.win_view.display(self.win_counter)
             return True
 
         if self.button_list[(0, 2)].text() == self.button_list[(1, 1)].text() and self.button_list[(0, 2)].text() == self.button_list[(2, 0)].text() and self.button_list[(0, 2)].text() != "":
             if self.button_list[(0, 2)].text() == "X":
-                self.label.setText("You Lost") 
+                self.label.setText("You Lost")
+                self.win_counter = 0 
             else:
                 self.label.setText("You Won")
+                self.win_counter += 1
             self.disableButtons()
+            self.win_view.display(self.win_counter)
             return True
 
         return False
