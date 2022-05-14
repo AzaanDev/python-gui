@@ -36,7 +36,7 @@ class App(QMainWindow):
 
         self.rpsbtn = QPushButton("Rock Paper Scissors", self)
         self.rpsbtn.setGeometry(300, 200, 220, 210)
-
+        self.Connect()
         # Controller Instance
         self.control = Controller()
 
@@ -49,8 +49,6 @@ class App(QMainWindow):
 
     def ShowRPS(self):
         self.control.RockPaperScissorsWindow()
-
-        
 
 
 app = QApplication(sys.argv)
