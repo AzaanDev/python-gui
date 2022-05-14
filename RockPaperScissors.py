@@ -37,16 +37,16 @@ class RockPaperScissors(QWidget):
         # Buttons
         self.rbtn = QPushButton(self)
         self.rbtn.setGeometry(10,240,70,70)
-        self.rbtn.setStyleSheet("border-image : url(python-gui/icons/rock.jpg);")
+        self.rbtn.setStyleSheet("border-image : url(./icons/rock.jpg);")
 
         self.pbtn = QPushButton(self)
         self.pbtn.setGeometry(90,240,70,70)
-        self.pbtn.setStyleSheet("border-image : url(python-gui/icons/paper.jpg);")
+        self.pbtn.setStyleSheet("border-image : url(./icons/paper.jpg);")
 
 
         self.sbtn = QPushButton(self)
         self.sbtn.setGeometry(170,240,70,70)
-        self.sbtn.setStyleSheet("border-image : url(python-gui/icons/scissors.jpg);")
+        self.sbtn.setStyleSheet("border-image : url(./icons/scissors.jpg);")
         # b3.setStyleSheet("Background-color: Green")
 
         # VS label
@@ -63,7 +63,7 @@ class RockPaperScissors(QWidget):
         # CPU
         self.cpu_choice = QLabel("Default", self)
         self.cpu_choice.setGeometry(350, 200, 130, 150)
-        pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/question.png').scaled(130,150)
+        pixmap = QPixmap('./icons/question.png').scaled(130,150)
         self.cpu_choice.setPixmap(pixmap)
 
         # Text for Win
@@ -113,13 +113,13 @@ class RockPaperScissors(QWidget):
         self.cpu_select = random.randint(1,3)
 
         if self.cpu_select == 1:
-            pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/rock.jpg').scaled(130,150)
+            pixmap = QPixmap('./icons/rock.jpg').scaled(130,150)
             self.cpu_choice.setPixmap(pixmap)
         elif self.cpu_select == 2:
-            pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/paper.jpg').scaled(130,150)
+            pixmap = QPixmap('./icons/paper.jpg').scaled(130,150)
             self.cpu_choice.setPixmap(pixmap)
         elif self.cpu_select == 3:
-            pixmap = QPixmap('C:/Users/Danie/Documents/AdvPycharm/guistuff/project/icons/scissors.jpg').scaled(130,150)
+            pixmap = QPixmap('./icons/scissors.jpg').scaled(130,150)
             self.cpu_choice.setPixmap(pixmap)
 
     def Check_Win(self):
