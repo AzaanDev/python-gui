@@ -162,12 +162,13 @@ class RockPaperScissors(QWidget):
                 self.win_view.display(self.win_counter)
 
 
-def main():
-    app = QApplication(sys.argv)
-    view = RockPaperScissors()
-    view.show()
-    sys.exit(app.exec())
+# def main():
+#     app = QApplication(sys.argv)
+#     view = RockPaperScissors()
+#     view.show()
+#     sys.exit(app.exec())
 
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
+
