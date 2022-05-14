@@ -17,10 +17,26 @@ class Controller:
 class App(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("Temp Name")
+        self.setWindowTitle("Simple Gaming")
         self.resize(QSize(600,600))
 
         self.header = QLabel("Game App",self)
+        self.header.setStyleSheet("font: 10pt Sans Serif;" 
+                            "color: purple;"
+                            "font-weight: bold;")
+        self.header.setGeometry(210, 10, 180, 100)
+
+        self.tttbtn = QPushButton("Tic Tac Toe", self)
+        self.tttbtn.setGeometry(60, 200, 220, 210)
+
+        self.rspbtn = QPushButton("Rock Paper Scissors", self)
+        self.rspbtn.setGeometry(300, 200, 220, 210)
+
+    def Connect(self):
+
+    def MakeTTTInstance(self):
+
+    def MakeRSPInstance(self):
         
 
 
