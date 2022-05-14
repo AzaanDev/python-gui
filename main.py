@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QApplication, QMainWindow, QStackedLayout, QStackedWidget, QWidget, QPushButton, QLabel
 from PyQt5.QtCore import QSize
+from RockPaperScissors import RockPaperScissors
 from tictactoe import TicTacToe
 import sys
 
@@ -10,6 +11,10 @@ class Controller:
     
     def TicTacToeWindow(self):
         self.window = TicTacToe()
+        self.window.show()
+
+    def RockPaperScissorsWindow(self):
+        self.window = RockPaperScissors()
         self.window.show()
 
 
@@ -29,19 +34,25 @@ class App(QMainWindow):
         self.tttbtn = QPushButton("Tic Tac Toe", self)
         self.tttbtn.setGeometry(60, 200, 220, 210)
 
-        self.rspbtn = QPushButton("Rock Paper Scissors", self)
-        self.rspbtn.setGeometry(300, 200, 220, 210)
+        self.rpsbtn = QPushButton("Rock Paper Scissors", self)
+        self.rpsbtn.setGeometry(300, 200, 220, 210)
+
+        # Controller Instance
+        self.control = Controller()
 
     def Connect(self):
+        self.rpsbtn.clicked.connect(self.ShowRPS)
+        self.tttbtn.clicked.connect(self.ShowTTT)
 
-    def MakeTTTInstance(self):
+    def ShowTTT(self):
+        self.control.TicTacToeWindow()
 
-    def MakeRSPInstance(self):
+    def ShowRPS(self):
+        self.control.RockPaperScissorsWindow()
         
 
 
 app = QApplication(sys.argv)
-# window = Controller()
 # window.TicTacToeWindow()
 main_window = App()
 main_window.show()
