@@ -49,6 +49,7 @@ class App(QMainWindow):
 
     def ShowRPS(self):
         self.control.RockPaperScissorsWindow()
+
         
 
 
