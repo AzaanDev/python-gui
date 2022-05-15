@@ -73,11 +73,11 @@ class App(QMainWindow):
 
     def ShowTTT(self):
         self.control.TicTacToeWindow()
-        self.hide()
+        # self.hide()
 
     def ShowRPS(self):
         self.control.RockPaperScissorsWindow()
-        self.hide()
+        # self.hide()
 
 
 app = QApplication(sys.argv)
