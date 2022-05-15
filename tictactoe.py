@@ -7,7 +7,7 @@ class TicTacToe(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Tic Tac Toe")
-        self.setGeometry(400, 200, 800, 600)
+        self.setGeometry(600, 220, 800, 600)
         self.layout = QGridLayout()
         self.button_list = {}
         for i in range(3): 
@@ -116,3 +116,11 @@ class TicTacToe(QWidget):
                 self.button_list[(i, j)].setEnabled(True)
         self.turns = 0
         self.label.setText("Your Turn")
+
+    def Create_Back_Button(self):
+        self.back = QPushButton("Return",self)
+        self.back.setGeometry(200, 480, 120, 60)
+        self.back.clicked.connect(self.Back_to)
+
+    def Back_to(self):
+        self.hide()
