@@ -22,6 +22,7 @@ class Controller:
 class App(QMainWindow):
     def __init__(self):
         super().__init__()
+        self.score = self.read_score()
         self.setWindowTitle("Simple Gaming")
         self.resize(QSize(600,600))
         self.setStyleSheet("background-color: #3C013E;")
@@ -78,6 +79,23 @@ class App(QMainWindow):
     def ShowRPS(self):
         self.control.RockPaperScissorsWindow()
         # self.hide()
+
+    def read_score(self):
+        try:
+            f = open("score.txt","r+")
+        except FileNotFoundError:
+            self.save_score(0)
+            return 0
+
+        line = f.readline()
+        val = int(line)
+        f.close()
+        return val
+
+    def save_score(self,val):
+        f = open("score.txt","w+")
+        f.write(str(val))
+        f.close()
 
 
 app = QApplication(sys.argv)
