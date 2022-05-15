@@ -24,20 +24,47 @@ class App(QMainWindow):
         super().__init__()
         self.setWindowTitle("Simple Gaming")
         self.resize(QSize(600,600))
+        self.setStyleSheet("background-color: #3C013E;")
 
-        self.header = QLabel("Game App",self)
-        self.header.setStyleSheet("font: 10pt Sans Serif;" 
-                            "color: purple;"
+        self.header = QLabel("Simple Gaming",self)
+        self.header.setStyleSheet("font: 20pt Showcard Gothic;" 
+                            "color: gold;"
                             "font-weight: bold;")
-        self.header.setGeometry(210, 10, 180, 100)
+        self.header.setGeometry(196, 10, 220, 100)
 
         self.tttbtn = QPushButton("Tic Tac Toe", self)
         self.tttbtn.setGeometry(60, 200, 220, 210)
 
+        self.tttbtn.setStyleSheet("""
+            QPushButton {
+                border-image : url(./icons/ttt.png);
+                font: 10pt Showcard Gothic;
+                color: green;
+                border-radius: 15px;
+            }
+            QPushButton:hover {
+                color: yellow;
+            }
+        """)
+
+
         self.rpsbtn = QPushButton("Rock Paper Scissors", self)
         self.rpsbtn.setGeometry(300, 200, 220, 210)
-        self.Connect()
+        self.rpsbtn.setStyleSheet("""
+            QPushButton {
+                border-image : url(./icons/rps.jpg);
+                font: 10pt Showcard Gothic;
+                color: green;
+                border-radius: 15px;
+            }
+            QPushButton:hover {
+                color: yellow;
+            }
+        """)
+
+        
         # Controller Instance
+        self.Connect()
         self.control = Controller()
 
     def Connect(self):
