@@ -84,6 +84,9 @@ class RockPaperScissors(QWidget):
         self.win_view = QLCDNumber(self)
         self.win_view.setGeometry(20, 50, 150, 71)
 
+        # Create back button
+        self.Create_Back_Button()
+
 
     def _Connect(self):
         # Connect
@@ -109,7 +112,6 @@ class RockPaperScissors(QWidget):
         self.Cpu_Select()
         self.Check_Win()
 
-    # CPU Label
 
     # CPU SELECTION
     def Cpu_Select(self):
@@ -163,6 +165,15 @@ class RockPaperScissors(QWidget):
                 self.win.setText("You Lose.")
                 self.win_counter = 0
                 self.win_view.display(self.win_counter)
+
+    def Create_Back_Button(self):
+        self.back = QPushButton("Return",self)
+        self.back.setGeometry(200, 480, 120, 60)
+        self.back.clicked.connect(self.Back_to)
+
+    def Back_to(self):
+        self.close()
+
 
 
 # def main():
