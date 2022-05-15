@@ -7,7 +7,7 @@ class TicTacToe(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Tic Tac Toe")
-        self.setGeometry(400, 200, 800, 600)
+        self.setGeometry(600, 220, 800, 600)
         self.layout = QGridLayout()
         self.button_list = {}
         for i in range(3): 
