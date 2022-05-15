@@ -172,7 +172,7 @@ class RockPaperScissors(QWidget):
         self.back.clicked.connect(self.Back_to)
 
     def Back_to(self):
-        self.hide()
+        self.close()
 
 
 

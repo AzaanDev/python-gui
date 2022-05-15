@@ -26,11 +26,15 @@ class TicTacToe(QWidget):
         self.win_view.setGeometry(20, 50, 100, 50)
         self.win_view.move(10, 0)
         self.win_counter = 0
+        self.turns = 0
+        self.back = QPushButton("Return",self)
+        self.back.clicked.connect(self.Back_to)
+
 
         self.layout.addWidget(self.resetButton, 4, 2)
         self.layout.addWidget(self.label, 4, 0)
+        self.layout.addWidget(self.back, 4, 1)
         self.setLayout(self.layout)
-        self.turns = 0
 
     def onClick(self):
         self.turns += 1
@@ -117,10 +121,5 @@ class TicTacToe(QWidget):
         self.turns = 0
         self.label.setText("Your Turn")
 
-    def Create_Back_Button(self):
-        self.back = QPushButton("Return",self)
-        self.back.setGeometry(200, 480, 120, 60)
-        self.back.clicked.connect(self.Back_to)
-
     def Back_to(self):
-        self.hide()
+        self.close()
