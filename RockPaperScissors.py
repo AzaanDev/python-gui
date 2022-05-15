@@ -13,14 +13,14 @@ class RockPaperScissors(QWidget):
         # Window Creation
         self.setWindowTitle("Rock Paper Scissors")
         self.resize(QSize(600,600))
-        # self.setStyleSheet("background: #036396;")
+        # self.setStyleSheet("background: #9A7906;")
 
         # Title
         title = QLabel("Rock Paper Scissors", self)
         title.setGeometry(210, 10, 180, 100)
         title.setAlignment(QtCore.Qt.AlignCenter)
-        title.setStyleSheet("font: 10pt Sans Serif;" 
-                            "color: purple;"
+        title.setStyleSheet("font: 10pt Showcard Gothic;" 
+                            "color: Purple;"
                             "font-weight: bold;")
 
         # Player Name
@@ -37,16 +37,19 @@ class RockPaperScissors(QWidget):
         # Buttons
         self.rbtn = QPushButton(self)
         self.rbtn.setGeometry(10,240,70,70)
-        self.rbtn.setStyleSheet("border-image : url(./icons/rock.jpg);")
+        self.rbtn.setStyleSheet("border-image : url(./icons/rock.jpg);"
+                                "border-radius: 15px;")
 
         self.pbtn = QPushButton(self)
         self.pbtn.setGeometry(90,240,70,70)
-        self.pbtn.setStyleSheet("border-image : url(./icons/paper.jpg);")
+        self.pbtn.setStyleSheet("border-image : url(./icons/paper.jpg);"
+                                "border-radius: 15px;")
 
 
         self.sbtn = QPushButton(self)
         self.sbtn.setGeometry(170,240,70,70)
-        self.sbtn.setStyleSheet("border-image : url(./icons/scissors.jpg);")
+        self.sbtn.setStyleSheet("border-image : url(./icons/scissors.jpg);"
+                                "border-radius: 15px;")
         # b3.setStyleSheet("Background-color: Green")
 
         # VS label
