@@ -87,6 +87,13 @@ class RockPaperScissors(QWidget):
         # Create back button
         self.Create_Back_Button()
 
+        self.high_view = QLCDNumber(self)
+        self.high_view.setGeometry(20, 50, 150, 71)
+        self.high_score = int(load_score())
+        self.high_view.move(400, 50)
+        self.high_view.display(self.high_score)
+
+
 
     def _Connect(self):
         # Connect
@@ -138,6 +145,7 @@ class RockPaperScissors(QWidget):
                 self.win.setText("You win!")
                 self.win_counter += 1
                 self.win_view.display(self.win_counter)
+                self.newHighScore()
 
             else:
                 self.win.setText("You Lose.")
@@ -149,6 +157,7 @@ class RockPaperScissors(QWidget):
                 self.win.setText("You win!")
                 self.win_counter += 1
                 self.win_view.display(self.win_counter)
+                self.newHighScore()
 
             else:
                 self.win.setText("You Lose.")
@@ -160,6 +169,7 @@ class RockPaperScissors(QWidget):
                 self.win.setText("You win!")
                 self.win_counter += 1
                 self.win_view.display(self.win_counter)
+                self.newHighScore()
 
             else:
                 self.win.setText("You Lose.")
@@ -171,9 +181,14 @@ class RockPaperScissors(QWidget):
         self.back.setGeometry(200, 480, 120, 60)
         self.back.clicked.connect(self.Back_to)
 
+    def newHighScore(self):
+        if self.win_counter > self.high_score:
+            self.high_score = self.win_counter
+            self.high_view.display(self.high_score)
+            save_score(str(self.high_score))
+
     def Back_to(self):
         self.close()
-
 
 
 # def main():

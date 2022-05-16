@@ -22,13 +22,21 @@ class TicTacToe(QWidget):
         self.resetButton.clicked.connect(self.Reset)
         self.label = QLabel('Your Turn', self)
         self.label.setAlignment(Qt.AlignCenter)
+
         self.win_view = QLCDNumber(self)
         self.win_view.setGeometry(20, 50, 100, 50)
         self.win_view.move(10, 0)
         self.win_counter = 0
         self.turns = 0
+
         self.back = QPushButton("Return",self)
         self.back.clicked.connect(self.Back_to)
+
+        self.high_view = QLCDNumber(self)
+        self.high_view.setGeometry(20, 50, 100, 50)
+        self.high_score = int(load_score())
+        self.high_view.move(400, 0)
+        self.high_view.display(self.high_score)
 
 
         self.layout.addWidget(self.resetButton, 4, 2)
@@ -68,6 +76,7 @@ class TicTacToe(QWidget):
                 else:
                     self.label.setText("You Won")
                     self.win_counter += 1
+                    self.newHighScore()
                 self.disableButtons()
                 self.win_view.display(self.win_counter)
                 return True
@@ -80,6 +89,7 @@ class TicTacToe(QWidget):
                 else:
                     self.label.setText("You Won")
                     self.win_counter += 1
+                    self.newHighScore()
                 self.disableButtons()
                 self.win_view.display(self.win_counter)
                 return True
@@ -91,6 +101,7 @@ class TicTacToe(QWidget):
             else:
                 self.label.setText("You Won")
                 self.win_counter += 1
+                self.newHighScore()
             self.disableButtons()
             self.win_view.display(self.win_counter)
             return True
@@ -102,6 +113,7 @@ class TicTacToe(QWidget):
             else:
                 self.label.setText("You Won")
                 self.win_counter += 1
+                self.newHighScore()
             self.disableButtons()
             self.win_view.display(self.win_counter)
             return True
@@ -113,6 +125,12 @@ class TicTacToe(QWidget):
            for j in range(3): 
                 self.button_list[(i, j)].setEnabled(False)
 
+    def newHighScore(self):
+        if self.win_counter > self.high_score:
+            self.high_score = self.win_counter
+            self.high_view.display(self.high_score)
+            save_score(str(self.high_score))
+
     def Reset(self):
         for i in range(3): 
            for j in range(3): 
@@ -123,3 +141,4 @@ class TicTacToe(QWidget):
 
     def Back_to(self):
         self.close()
+
