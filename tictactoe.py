@@ -88,6 +88,7 @@ class TicTacToe(QWidget):
 
         return False
 
+
     def disableButtons(self):
         for i in range(3): 
            for j in range(3): 
@@ -100,3 +101,18 @@ class TicTacToe(QWidget):
                 self.button_list[(i, j)].setEnabled(True)
         self.turns = 0
         self.label.setText("Your Turn")
+
+def save_score(val): #TTT save
+    s = str(val)
+    f = open("score.txt","r+")
+    l = f.readlines()
+    l[1] = s
+    p = l[0] + l[1]
+    f.seek(0)
+    f.write(p)
+    f.truncate()
+        
+def load_score(): #TTT load
+    f = open("score.txt","r+")
+    l = f.readlines()
+    return l[1] 
