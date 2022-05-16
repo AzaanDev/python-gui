@@ -190,6 +190,22 @@ class RockPaperScissors(QWidget):
     def Back_to(self):
         self.close()
 
+def save_score(val): #RPS save
+    s = str(val)
+    s += '\n'
+    f = open("score.txt","r+")
+    l = f.readlines()
+    l[0] = s
+    p = l[0] + l[1]
+    f.seek(0)
+    f.write(p)
+    f.truncate()
+
+def load_score(): #RPS load
+    f = open("score.txt","r+")
+    l = f.readlines()
+    return l[0][:-1]
+
 
 # def main():
 #     app = QApplication(sys.argv)
