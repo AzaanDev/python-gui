@@ -142,3 +142,17 @@ class TicTacToe(QWidget):
     def Back_to(self):
         self.close()
 
+def save_score(val): #TTT save
+    s = str(val)
+    f = open("score.txt","r+")
+    l = f.readlines()
+    l[1] = s
+    p = l[0] + l[1]
+    f.seek(0)
+    f.write(p)
+    f.truncate()
+    
+def load_score(): #TTT load
+    f = open("score.txt","r+")
+    l = f.readlines()
+    return l[1] 
