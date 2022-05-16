@@ -58,3 +58,16 @@ Constructor - Creates the Window, sets window information (size and title), crea
 Connect() - Connects functions to buttons
 ShowTTT() - Calls the Controllers's TicTacToeWindow() function
 ShowRPS() - Calls the Controllers's RockPaperScissor() function
+
+### Score Tracking Functions
+Score File Strucute
+0 - Rock Paper Scissor High Score
+0 - Tic Tac Toe High Score
+
+RockPaperScissor.py
+save_score(val) - Takes a val can stores it into the first line in the file
+load_score()    - Returns the value in the first line of the file
+
+TicTacToe.py
+save_score(val) - Takes a val can stores it into the second line in the file
+load_score()    - Returns the value in the second line of the file
